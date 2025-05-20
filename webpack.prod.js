@@ -2,7 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
 	mode: "production",
-	entry: './src/food-app/main.ts',
+	entry: './src/react.tsx',
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
@@ -11,14 +11,14 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.ts$/,
+				test: /\.tsx?$/,
 				use: 'ts-loader',
 				exclude: /node_modules/
 			}
 		]
 	},
 	resolve: {
-		extensions: ['.ts', '.js']
+		extensions: ['.tsx', '.ts', '.js']
 	},
 	plugins: [
 		new CleanWebpackPlugin()
